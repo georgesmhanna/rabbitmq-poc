@@ -4,6 +4,15 @@
     <input type="text" [(ngModel)]="inputMessage" name="inputMessage" id="inputMessage">
     <button class="btn btn-primary">Send Test Message</button>
   </form>
+
+  <h3>RPC: </h3>
+
+  <form (ngSubmit)="onSendRpcMessage()">
+    <label for="inputNumberRpc">Fibonacci series for: </label>
+    <input type="text" [(ngModel)]="inputNumberRpc" name="inputNumberRpc" id="inputNumberRpc" (ngModelChange)="resultRpc=''">
+    <button class="btn btn-primary">Find Fibonacci</button>
+    <p>Fibonacci series for {{inputNumberRpc}} is: {{resultRpc}}</p>
+  </form>
   
   <h2>Received messages</h2>
   <ol>

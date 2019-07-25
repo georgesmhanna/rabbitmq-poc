@@ -19,13 +19,15 @@ amqp.connect('amqp://192.168.0.125', opt,  (error0, connection) => {
 
         const queue1 = 'queueNodeWeb';
 
-        setInterval(()=>{
-            let msg = `Hello from node server at ${new Date()}`;
-            channel.assertQueue(queue1, {durable: true});
-            channel.sendToQueue(queue1, Buffer.from(msg));
-            console.log(" [x] Sent %s", msg);
-        }, 60000);
+        // setInterval(()=>{
+        //     let msg = `Hello from node server at ${new Date()}`;
+        //     channel.assertQueue(queue1, {durable: true});
+        //     channel.sendToQueue(queue1, Buffer.from(msg));
+        //     console.log(" [x] Sent %s", msg);
+        // }, 60000);
 
+      channel.assertQueue('', {exclusive: true});
+      channel.sendToQueue('rpc_queue', Buffer.from('10'), {replyTo: queue1});
 
 
         // receiving ..........

@@ -4,6 +4,7 @@
   "description": "rabbitmq acteos poc",
   "main": "send.js",
   "dependencies": {
+    "@types/amqplib": "^0.5.13",
     "amqplib": "^0.5.3"
   },
   "devDependencies": {},
